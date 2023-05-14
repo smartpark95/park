@@ -1,0 +1,382 @@
+@import "reset";
+
+.header{
+position:relative;
+padding:18px 5%;
+    .logo{
+    float:left;
+        a{
+        font-size:26px; color:#3f51b5; font-weight:normal;   
+        }
+    }
+    .gnb{
+    position:absolute;top:50px;left:0;width:100%;background:#3f51b5;
+    display:none;
+        li{
+        border-bottom:1px solid #303f9f;  
+            a{
+            display:block; padding:14px 0 14px 5%; color:#fff;  
+            }  
+        }
+    }
+    .menu-toggle-btn{
+    float:right; width:20px; margin-top:4px; cursor:pointer; 
+        span{
+        width:100%; display:block; height:2px;
+        background:#3f51b5;   
+        } 
+        span:nth-child(2){
+        margin:5px 0;
+        }  
+    }
+    
+}
+
+.footer{
+    margin-top:104px;
+        iframe{width:100%; height:320px;}
+        p{margin:21px 0; color:#3f51b5; text-align:center;}
+}
+   
+.container{
+width:90%; max-width:1132px; margin:0 auto;
+}
+.cfixed:after, .container:after{
+display:block; content:"";
+clear:both;
+}
+.slider{
+    img{
+    display:block;width:100%;max-width:100%;height:auto;
+    }
+}
+.display-section{
+margin-top:59px;
+text-align:center;
+    .sec-tit{
+    margin-bottom:30px;
+    }
+}
+.blind{
+position:absolute; width:0; height:0; line-height: 0; 
+text-indent:-9999px;
+overflow:hidden;
+}
+.divider{
+width:90%; max-width:1132px; margin:0 auto; margin-top:77px; background:#eee;
+}
+.m-divider{width:20px; margin:0 auto; margin-top:77px; background:#3f51b5;}
+.promotion-section{
+    margin-top:68px;
+    .promo-list{
+        li{
+        margin-top:52px; text-align: center;
+            img{height:52px;}
+            h3{margin:29px 0 20px 0; color:#3f51b5; font-weight:normal;}
+            p{font-size:14px; font-family:'PT Serif'; color:#616161; line-height:1.5;}
+        }
+        li:first-child{//last-child(마지막)
+        margin-top:0;
+        }
+    }
+}
+
+/*최근 작업 영역*/
+.work-section{
+    margin-top:73px;
+    .sec-tit{
+    width:90%;
+    max-width:1132px;//최대한으로 커진다한들 1132px이상은 못커짐
+    margin:0 auto;//위아래 마진이 0이고 좌우는 알아서 ..가운데 정렬
+    margin-bottom:47px;
+    text-align:center;
+    }
+    .work-list{
+        li{
+        width:100%;
+            a{
+                display:block;
+                position:relative;
+                width:100%;
+                height:100%;   
+            }
+            a:before{//top을 의미합니다
+            display:block;
+            position:absolute;
+            top:0;left:0;//엘리먼트에 위 좌 좌표
+            z-index:10;
+            width:100%;
+            height:100%;
+            content:"";
+            transition:all 0.2s;
+            background:#3e51b5;
+            opacity:0;
+            }
+            a:hover:before{
+            opacity:0.86;
+            }
+            .info{
+            position:absolute; top:0; left:23px; z-index:20; top:0; opacity:0; transition:all 0.3s;  
+                h3{
+                margin-bottom:8px; font-size:23px; color:#fff; font-weight:normal;   
+                }  
+                span{
+                font-size:11px; color:#fff;    
+                }
+            }
+            a:hover .info{//마우스를 가져갈때 class info를 칭함
+            transform:translateY(23px); opacity:1;
+            }
+            img{
+            display:block; width:100%; max-width:100%; height:auto;
+            }
+        }
+    }
+}
+
+/*최근 글 영역 css*/
+.blog-section{
+    margin-top:77px;
+    .sec-tit{
+    margin-bottom:47px;
+    text-align:center;
+    }
+    .blog-list{
+        li{
+        width:100%; margin-top:45px;
+        }
+        li:first-child{
+        margin-top:0;
+        }
+        img{
+        display:block;
+        width:100%; max-width:100%; height:auto;    
+        }
+        time{
+        display:block;
+        margin:11px 0 10px 0;
+        font-size:11px;
+        color:#9e9e9e;
+        }
+        h3{
+        color:#424242;
+        font-weight:normal;
+        line-height:1.6;
+        }
+    }
+}
+
+/*연락처 영역 css*/
+.contact-section{
+    margin-top:109px;
+    .sec-tit{
+    margin-bottom:47px;
+    text-align:center;    
+    }
+    .form-box{
+        .form{
+            input{padding-bottom:13px; margin-bottom:38px;}
+            .textarea{
+                textarea{
+                    height:165px;
+                }
+            }
+        }
+        .send-btn{
+        margin-top:36px;
+        text-align:right;
+            button{
+            padding:15px; margin:0; border:0; font-size:12px;
+            color:#fff; background:#3f51b5;
+            font-family:'Montserrat';
+            cursor:pointer;    
+            }
+        }
+    }
+}
+
+/*태블릿용 css*/
+@media all and (min-width:768px){//최소한의 크기가 768px부터
+    .divider{margin-top:124px;}
+    .m-divider{margin-top:124px;}
+    .header{
+        position:static; //순서대로
+        padding:28px 52px;
+        .gnb{
+        display:block !important; //여러개의 css중에 하나를 픽스하거나 반듯이 구현해야 하는 사항일 때
+        position:static; float:right; width:auto; margin-top:6px; 
+        background:none;
+            li{
+            float:left; margin-left:21px; border-bottom:0;
+            a{padding:0; font-size:16px; color:#3f51b5;}
+            }
+        }
+
+        .menu-toggle-btn{
+        display:none !important;
+        }
+    }
+
+    /*디스플레이 영역*/
+    .display-section{
+    margin-top:95px; 
+    }
+    .promotion-section{
+    margin-top:110px;
+        .promo-list{
+            li{
+            float:left;
+            width:23.046875%;
+            margin-left: 2.60416666666667%;
+            margin-top:0;
+            }
+            li:first-child{
+            margin-left:0;
+            }
+        }
+    }
+
+    /*작업 영역*/
+    .work-section{
+    margin-top:118px;
+        .sec-tit{
+        margin-bottom:76px;
+        }
+        .work-list{
+            li{
+            float:left;
+            width:50%;
+                .info{
+                left:37px;
+                }
+                a:hover .info{
+                transform:translateY(37px);    
+                }
+            }
+        }
+    }
+
+    .blog-section{
+    margin-top:124px;
+        .sec-tit{
+        margin-bottom:76px;
+        }
+        .blog-list{
+            li{
+            float:left;
+            width:31.59722222222222%;
+            margin-left:2.60416666666667%;
+            margin-top:0;
+            }
+            li:first-child{
+            margin-left:0;
+            }
+        }
+    }
+
+    .contact-section{
+    margin-top:176px;
+        .sec-tit{
+        margin-bottom:76px;
+        }
+        .form-box{
+            .form{
+                float:left;
+                width:48.69791666666667%;
+                margin-right:2.6041666666667%;
+                input:last-child{
+                margin-bottom:0;
+                }
+            }
+            .textarea{
+                float:left;
+                width:48.69791666666667%;
+            }
+        }
+    }
+
+    .footer{
+        iframe{height:432px;}
+        p{margin:34px 0;}
+    }
+
+}/*태블릿 end*/
+
+/*pc용*/
+@media all and (min-width:1132px){
+
+    .display-section{
+        text-align:left;
+        .sec-tit{
+         float:left; margin-bottom:0;
+        }
+        .desc{
+        position:relative;
+        float:right; padding-left:20px;
+        font-family:'PT Serif';
+        color: #616161;
+        line-height:1.9;
+        }
+        .desc:before{
+        display:block;
+        position:absolute;
+        top:9px;
+        left:0;
+        width:2px;
+        height:44px;
+        background:#e0e0e0;
+        content:"";
+        }
+    }
+
+    .promotion-section{
+        .promo-list{
+            li{
+            width:23.67491166077739%;
+            margin-left:1.76678445229682%;
+            }
+        }
+    }
+
+    .work-section{
+        .sec-tit{
+        text-align:left;
+        }
+        .work-list{
+            li{width:25%;}
+        }
+    }
+
+    .blog-section{
+        .sec-tit{
+        float:left;
+        margin-bottom:0;
+        }
+        .blog-list{
+        float:right;
+        width:74.5583038869258%;
+            li{
+            width:31.75355450236967%;
+            margin-left:2.3696682464455%;
+            }
+        }
+    }
+
+    .contact-section{
+        .sec-tit{
+            float:left;
+            margin-bottom:0;
+        }
+        .form-box{
+        float:right;
+        width:74.5583038869258%;
+            .form{
+            width:48.81516587677725%;
+            margin-right:2.3696682464455%;
+            }
+            .textarea{
+            width:48.81516587677725%;
+            }
+        }    
+    }
+}
